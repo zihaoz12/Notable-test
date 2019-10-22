@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello world</title>
+
+   
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+    integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Oxygen" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  
+    
+</head>
+<body>
+    <h1>hello</h1>
+
+
+    <div >
+    <h1>Add Patients</h1>
+
+    <form  action="/" method="POST">
+        <label for="firstName"></label>
+            <input type="text" id="firstName" name="firstName" placeholder="Patient's firstName...">
+        <label for="lastName"></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Patient's lastName...">
+        <label for="time"></label>
+             <select type="time" name="time">
+                    <option value="8:00AM">8:00AM</option>
+                    <option value="8:30AM">8:30AM</option>
+                    <option value="9:00AM">9:00AM</option>
+                    <option value="9:30AM">9:30AM</option>
+                    <option value="10:00AM">10:00AM</option>
+                    <option value="10:30AM">10:30AM</option>
+            </select>
+        <label for="kind"></label>
+             <select type="text" name="kind">
+                    <option value="New Patient">New Patient</option>
+                    <option value="Follow Up">Follow Up</option>
+            </select>
+        <button type="submit" id="submitButton" name="submit">Add Patients</button>
+    </form>
+    </div>
+
+    <div>
+        <p>Here is Patients Lists</p>
+    
+        <% for (let i = 0; i < Patients.length; i++) { %>
+            <div>
+                <h3>
+                    <%= Patients[i].firstName %> 
+                </h3>
+                <h3>
+                    <%= Patients[i].time %> 
+                </h3>
+                <h3>
+                    <%= Patients[i].kind %> 
+                </h3>
+
+                <div>
+                    <form action="/<%=Patients[i]._id%>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+             
+
+        <%  } %>
+      
+    </div>
+ 
+</body>
+</html>
