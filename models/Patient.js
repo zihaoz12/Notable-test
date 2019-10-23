@@ -10,10 +10,6 @@ const PatientSchema = new Schema({
         type:String,
         required:true
     },
-    time:{
-        type:String,
-        required:true
-    },
     kind:{
         type:String,
         required:true

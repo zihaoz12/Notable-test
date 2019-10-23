@@ -13,6 +13,10 @@ const DoctorSchema = new Schema({
     email:{
         type:String,
         required:true
+    },
+    appointments:{
+        type:Schema.Types.ObjectId,
+        ref:"appointments"
     }
 })
 
