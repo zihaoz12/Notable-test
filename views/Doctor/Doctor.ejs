@@ -1,0 +1,87 @@
+<%include ../partials/Head %>
+
+<body>   
+ <div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <h2></h2>
+      <div class="sidebar-sticky">
+        <h3>Physicians</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+              <a class="nav-link" href="/5db22386f9b78a82c17c6eba">
+                  <span>Julius</span>
+                  <span>Hibbert</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/5db2239ef9b78a82c17c6ebb">
+                  <span>Algernop</span>
+                  <span>Krieger</span>
+              </a>
+          </li> 
+          <li class="nav-item">
+              <a class="nav-link" href="/5db223b6f9b78a82c17c6ebc">
+                  <span>Nick</span>
+                  <span>Riviera</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/">
+              Back to home
+            </a>
+          </li> 
+        </ul>
+      </div>
+</nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 title">Dr. <%= doctor.firstName%> <%= doctor.lastName%> </h1>
+        <div>
+          <p class="sub-title"><%=doctor.email %></p>
+        </div>
+      </div>
+        <div>
+            <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Time</th>
+            <th scope="col">Kind</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0;i<doctor.appointments.length;i++){%>
+              <tr>
+					      <th scope="row"><%= i + 1%></th>
+                <td><%=doctor.appointments[i].firstName%> <%=doctor.appointments[i].lastName%></td>
+                <td><%=doctor.appointments[i].time%></td>
+                <td><%=doctor.appointments[i].kind%></td>
+                <td>
+                  <form action="/<%=doctor._id%>/appointments/<%=doctor.appointments[i]._id%>?_method=DELETE" method="post">
+                    <input type="submit" value="Delete Post"/>
+                  </form>
+                </td>
+              </tr>
+				    <% } %>  
+               
+        </tbody>
+        </table>
+
+        <div>
+            <%include ../partials/NewAppointment %>
+        </div>
+        </div>
+
+     
+    
+    </main>
+  </div>
+</div>
+
+   
+ 
+<% include ../partials/Footer %>

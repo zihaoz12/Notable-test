@@ -1,0 +1,33 @@
+<form action="/<%=doctor._id%>/appointments" method="POST">
+    <div class="form-row align-items-center">
+        <div class="col-sm-3 my-1">
+            <label class="sr-only">firstName</label>
+                <input type="text" class="form-control" name="firstName" placeholder="Frist Name">
+        </div>
+        <div class="col-sm-3 my-1">
+            <label class="sr-only">lastName</label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+        </div>
+                 
+        <div class="col-auto my-1">
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                <select class="custom-select mr-sm-2" name="time">
+                    <option selected>Choose...</option>
+                    <option value="8:00AM">8:00AM</option>
+                    <option value="8:30AM">8:30AM</option>
+                    <option value="9:00AM">9:00AM</option>
+                </select>
+        </div>
+        <div class="col-auto my-1">
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                <select class="custom-select mr-sm-2" name="kind">
+                    <option selected>Choose...</option>
+                    <option value="New Patient">New Patient</option>
+                    <option value="Follow Up">Follow Up</option>
+                </select>
+        </div>
+        <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>

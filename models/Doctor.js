@@ -1,24 +1,21 @@
-const mongoose =  require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const DoctorSchema = new Schema({
+const Doctor = mongoose.model("Doctor", new mongoose.Schema({
     firstName:{
-        type:String,
-        required:true
+        type:String
     },
     lastName:{
-        type:String,
-        required:true
+        type:String
     },
     email:{
-        type:String,
-        required:true
+        type:String
     },
-    appointments:{
-        type:Schema.Types.ObjectId,
-        ref:"appointments"
-    }
-})
+    appointments:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Appointment"
+        }
+    ]
+}));
 
-const Doctor =mongoose.model('doctors', DoctorSchema);
 module.exports = Doctor
